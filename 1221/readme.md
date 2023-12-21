@@ -1,6 +1,8 @@
-# This is a H1
-## This is a H2
-### This is a H3
-#### This is a H4
-##### This is a H5
-###### This is a H6
+# c++ 입문
+
+12월 21일 강의 내용
+
+1. vs 설치
+2. 강의 Chapter 1
+3. github 사용법
+4. Markdown 사용법
