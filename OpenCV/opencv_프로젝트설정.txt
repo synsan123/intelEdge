@@ -1,0 +1,8 @@
+c++ 일반 => $(OPENCV_DIR)\include
+링커 일반 => $(OPENCV_DIR)\x64\vc15\lib
+링커 입력 => opencv_world400d.lib/opencv_world400.lib
+
+uhsystems.direct.quickconnect.to:5001/
+
+OpenCV
+CIq65aP!
