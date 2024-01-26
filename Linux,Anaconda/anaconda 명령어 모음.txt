@@ -1,0 +1,109 @@
+========================================================
+base(root)가 관리함. 이 공간을.
+base는 건드리면 안됨. => 절대!!!!!!. 아무것도 설치하면 안됨!!!!!
+아래의 방에서는 해도 됨.
+
+
+
+
+=========================================================
+
+==========================
+방)(base)				1
+				1
+				1
+				1
+				1
+				1
+				1
+				1
+==========================
+
+책 만약에 사게 되면 python 3.6이하 버전은 사선 안됨.
+
+conda(시작은 conda로 시작함) create -n(=방 만들기 코드) py39(=파일명) python=3.9(=파이썬 버전)
+
+conda activate py39 (만든 방을 사용하기)
+
+conda deactivate(방에서 나가기)
+
+conda install jupyter notebook
+
+conda install tensorflow==2.9
+
+pip install tensorflow==2.9 (위에꺼 안될 시 사용)
+
+conda install numpy matplotlib
+
+conda deacitvate 
+
+conda activate base 후 base 환경에서 아래 코드 작성
+
+conda update -n base -c defaults conda 
+
+
+파이썬 설치. 맨 위 user 클릭.
+D:\Python\Python39
+
+명령 프롬프트에서
+python.exe -m pip install --upgrade pip
+
+pip install jupyter notebook
+
+pip install tensorflow==2.9
+
+pip install numpy matplotlib
+
+test
+cd..
+cd Python
+python
+import tensorflow as tf
+md workspace
+python
+print(tf.__version__)
+
+d:
+cd \
+cd Python
+
+jupyter notebook
+
+. = 현재 디렉토리
+.. = 상위 폴더
+
+numpy = 계산 담당
+matplotlib = 그래프 담당
+pandas = 데이터 읽어와서 저장 담당
+
+1. nvidia 드라이버, nvidia cuda, cudnn 등 설치
+1) cmd nvidia-smi 입력
+2) cuda 버전 확인
+3) google cuda11.4 설치 입력 https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_network
+
+4) 11.4.4 클릭, windows, 이후 전부 왼쪽 클릭
+
+5) cuDNN설치 https://developer.nvidia.com/cudnn
+
+6) 설치 후. cuda 더블클릭. OK 클릭. 다운. 
+
+7) cuDNN 압축풀기. 폴더에 들어가서 파일탐색기 다른 거 열고. c에 ProgramFiles. Nvidia gpu 폴더 들어가기. 
+CUDA , 11.4 들어가서 cuDNN안에 있는 폴더 집어넣기
+경로 카피해서 내 PC 속성 들어가고 고급 시스템 설정에 환경변수 들어간 후 Path라고 적힌 곳 클릭 편집 클릭
+새로만들기 클릭. 카피한 것 붙이기 새로만들기해서 다시 한 번 더 하기. 그리고 뒷 자리에 lib , include 입력하기.
+
+8) anaconda navigator 실행. base 오른쪽 오픈 터미널 클릭. conda activate py39 엔터
+pip install tensorflow-gpu==2,9 엔터
+pip install tensorflow==2.9 엔터
+
+d: 엔터
+cd anaProject 엔터
+jupyter notebook 엔터
+
+new 커널 Python 3 들어가서
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices()) 입력 후 RUN
+
+
+
+

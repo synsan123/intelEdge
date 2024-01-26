@@ -1,0 +1,362 @@
+Linux
+
+Windows PowerShell 관리자 권한으로 실행
+
+1. wsl --install
+
+2. user name = aisw302
+   password  = 302
+
+3, man 명령어
+   man --help
+   info --명령어
+   alias
+   pwd 현재 작업 디렉토리 보여줌
+
+4. mkdir 이름
+   cat > hello.c (작성) => cat > 원하는 파일 이름 및 형식 입력 시 파일 생성 Ex) cat > test.txt 입력 후 ctrl + D 입력으로 나감
+   cat 파일이름 > 파일에 있는 내용 출력.
+   gcc -o hello hello.c (목적파일 생성)
+   gcc 없을 시 sudo apt -y install gcc
+   ./hello (hello.c 컴파일)
+
+5. ls /bin/l* => root 아래 bin 폴더에서 l로 된 파일을 모두 검색
+   ls /usr/include => include 폴더에는 헤더 파일이 들어있음
+
+6. .. 상위 디렉토리
+   .  현재 디렉토리
+   ~ 홈 디렉토리
+   / 루트 디렉토리
+
+7. sudo apt update
+   sudo apt install tree => tree (디렉토리 및 파일을 tree 처럼 보여줌)
+   
+8. mkdir chang
+   mkdir chang/doc
+   mkdir chang/test
+   cat > chang/test/cs1.txt (cat > 대신에 vi 가능)
+   sudo apt update
+   sudo apt install tree => tree (디렉토리 및 파일을 tree 처럼 보여줌)
+
+   vi 내용 저장하고 나가기 = :wq or shift+z shift+z
+
+9. mkdir abc/def/ghi 는 실행 실패
+   mkdir -p abc/def/ghi 는 실행 성공. => -p는 중간에 디렉토리를 생성 해주는 것.(abc 밑에다가 def/ghi를 생성해줌)
+   rm -r abc하면 abc/def/ghi까지 전부 삭제
+
+10. 
+script 0108.txt 
+date
+hostname
+uname
+whoami
+who
+clear
+man ls
+whatis ls
+which ls
+pwd
+cd ~
+cd ..
+cd .
+cd /
+mkdir -p abc/def/ghi
+rm -r abc
+rmdir abc/def/ghi
+alias (ls명령어 알아보기 위한 명령어)
+cat > 파일이름.형식 => 입력 후 ctrl + d로 빠져나오기
+cat 파일이름.형식 => 파일 내용 출력
+touch 파일이름.형식 => 파일 생성 (있으면 날짜 변경)
+ll => ls -l이랑 같음
+wc 0108/hello.c  => 파일의 줄, 글자 수 등 출력
+exit
+
+11. 
+wsl 파일의 경로를 확인 할 때는 아래 명령어를 입력한다.
+explorer.exe .
+
+12. vi 키보드
+dd = 한 줄 삭제
+dw = 한 단어 삭제
+x = 한 알파벳, 한글(한 문자) 삭제
+https://vim.rtorr.com/ (Vim Cheet Sheet)
+https://emptyreset.tistory.com/15 (Vim cheet Sheet 한글 버전)
+https://winterbloooom.github.io/computer%20science/linux/2022/02/23/vim.html(Vim 명령어)
+
+13. 
+
+set hlsearch " 검색어 하이라이팅
+set nu " 줄번호
+set autoindent " 자동 들여쓰기
+set scrolloff=2
+set wildmode=longest,list
+set ts=4 "tag select
+set sts=4 "st select
+set sw=1 " 스크롤바 너비
+set autowrite " 다른 파일로 넘어갈 때 자동 저장
+set autoread " 작업 중인 파일 외부에서 변경됬을 경우 자동으로 불러옴
+set cindent " C언어 자동 들여쓰기
+set bs=eol,start,indent
+set history=256
+set laststatus=2 " 상태바 표시 항상
+"set paste " 붙여넣기 계단현상 없애기
+set shiftwidth=4 " 자동 들여쓰기 너비 설정
+set showmatch " 일치하는 괄호 하이라이팅
+set smartcase " 검색시 대소문자 구별
+set smarttab
+set smartindent
+set softtabstop=4
+set tabstop=4
+set ruler " 현재 커서 위치 표시
+set incsearch
+set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+" 마지막으로 수정된 곳에 커서를 위치함
+au BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\ exe "norm g`\"" |
+\ endif
+" 파일 인코딩을 한국어로
+if $LANG[0]=='k' && $LANG[1]=='o'
+set fileencoding=korea
+endif
+" 구문 강조 사용
+if has("syntax")
+ syntax on
+endif
+" 컬러 스킴 사용
+colorscheme jellybeans
+   
+
+14. 
+ vi 명령모드에서 :e 파일이름하면 새로운 파일이 만들어짐 
+ :!gcc -o 파일이름 파일이름.형식쓰면 바로 목적파일 만들어짐
+ :!./파일이름 하면 바로 결과보기가 가능
+ 터미널에서 * = all이고 ? = one이란 의미.
+ ex) ll chap???이면 chap이름의 파일 그 뒤에 ???개수만큼 똑같은걸 찾아줌.
+ ex) ll chap*이면 chap이름으로 된 거 다 찾아줌.
+ ex) rm -r chap???이면 chap이름에 ??? 개수만큼의 이름의 파일을 찾아서 제거
+
+ gcc -c main.c 는 컴파일(목적파일 생성)
+ gcc -o main main.c 는 링크(실행파일 생성)
+ gcc -o main main.c copy.c 해서 한 번에 가능
+
+15. makefile
+
+gcc -c a.c를 하면 a.o가 만들어짐
+gcc -o abc a.o b.o c.o를 하면 a, b, c의 목적파일을 이용하여 abc실행파일을 만들라는 뜻 (링크)
+그런데 a, b, c 를 수정하게 되면 위의 gcc -o과정을 다시 해야함.
+하지만 Makefile을 만들어서 사용하면 make만 해도 충분함.
+
+main:main.o copy.o
+	gcc -o main main.o copy.o
+main.o:main.c copy.h
+	gcc -c main.c
+copy.o:copy.c
+	gcc -c copy.c
+는 : 뒤의 파일을 이용해서 :앞의 파일을 만들어라 라는 Makefile의 내용임.
+
+16. ssh(쉘 스크립트)
+cat > test1
+date 
+ls
+ctrl + d
+chmod u+x test1 => 실행파일을 만듬
+echo This is a test
+echo "This is a test"
+
+cat > test1
+echo The time and date are:
+date
+echo "Let's see list of current directory:"
+ls -asF
+./test1
+
+cat > test2
+echo "User information from the system"
+echo UID : $UID => $는 변수를 다룰 때 사용.
+echo HOME: $HOME
+chmod u+x test2
+./test2
+
+cat > test3
+days=10 => 변수 선언 및 초기화
+guest="Katie"
+echo "$guest checked in $days days ago" => $guest는 guest변수의 값을 가져옴
+days=5
+guest="Jessica"
+echo "$guest checked in $days days ago"
+chmod u+x test3
+./test3
+
+cat > auto
+echo $0 $1 $2 $3
+./auto
+결과 => ./auto 나옴 $0이 ./auto임
+./auto 0 1 2 3 => 결과 = ./auto 0 1 2 나옴 => 순서대로 $0 $1 $2 $3 임.
+
+cat > auto => 자동화를 함($1이라는 파일을 만들고 $1이라는 파일을 실행파일로 만들고 $1이라는 파일을 실행함)
+cat > $1
+chmod u+x $1
+./$1
+
+./auto test2
+echo "User info for userid : $USER"
+echo UID : $UID
+echo HOME : $HOME
+결과 => User info for userid : aisw302
+           UID : 1000
+           HOME : /home/aisw302
+
+./auto test4
+value1=1
+value2=$value1
+echo The resulting value is $value2
+결과 => The resulting value is 10
+
+./auto test5
+testing=`date` => 주의 키보드자판 Tap위, 1번 왼쪽에 있는 ` 이거임.
+echo "The date and time are : " $testing
+
+./auto test6
+var1=10
+var2=20
+var3=`expr $var2 / $var1`
+echo The result is $var3
+
+echo $?는 return 0임. 즉 정상적으로 종료되었다는 의미임.
+직전에 사용한 명령어가 제대로 작동하지 않았다면 echo $?는 바로 직전에 사용한 명령이 비정상적으로 종료되었다를 의미.
+
+cat /etc/passwd 는 사용자의 아이디와 비밀번호가 나와있음
+
+./auto test7
+var1=100
+var2=50
+var3=45
+var4=$[$var1 * ($var2 - $var3)]
+echo The final result is $var4
+
+./auto test8
+var1=100
+var2=45
+var3=$[$var1 / $var2]
+echo The final result is $var3
+
+./auto test9
+var1=`echo " scale=4; 3.44 /5" | bc` => scale은 소숫점 아래 4자리까지를 말함.
+echo The answer is $var1
+
+./auto test10
+var1=100
+var2=45
+var3=`echo "scale=4; $var1 / $var2" | bc` => bc는 복잡한 공학용 산술과 실수 계산이 가능하도록 하는 명령어
+echo The answer for this is $var3
+
+./auto test11
+var1=20
+var2=3.14159
+var3=`echo "scale=4; $var1 * $var1" | bc`
+var4=`echo "scale=4; $var3 * $var2" | bc`
+echo The final result is $var4
+The final result is 1256.63600
+
+./auto test13
+var1=10
+var2=30
+var3=$[ $var1 + var2]
+echo The answer is $var3
+exit 5
+The answer is 40
+echo $?
+5
+
+./auto test14b
+var1=10
+var2=30
+var3=$[ $var1 * var2]
+echo The value is $var3
+exit $var3
+The value is 300
+echo $?
+44
+출구 상태 코드는 0~255 범위에 맞도록 축소됩니다. 셸은 모듈로 산술을 사용하여 이 작업을 수행합니다. 모듈로 값의 모듈로는 나눗셈 후 나머지입니다. 결과로 나온 숫자는 지정된 숫자의 나머지를 256으로 나눈 값입니다. 에서
+300인 경우(결과값), 나머지는 44로, 출구 상태 코드로 표시됩니다.
+
+./auto test11.1
+if date
+then
+        echo "it worked"
+fi
+Wed Jan 10 11:47:57 KST 2024
+it worked
+
+./auto test11.2
+if asdfg
+then
+        echo "it did not work"
+fi
+echo "we are outside of the if statement"
+./test11.2: line 1: asdfg: command not found
+we are outside of the if statement
+
+./auto test11.3
+testuser=aisw302
+if grep $testuser /etc/passwd
+then
+        echo The bash files for user $testuser are:
+        ls -a /home/$testuser/.b* => .b*는 bash 파일을 출력하라는 뜻
+fi
+아래는 결과값
+aisw302:x:1000:1000:,,,:/home/aisw302:/bin/bash
+The bash files for user aisw302 are:
+/home/aisw302/.bash_history  /home/aisw302/.bash_logout  /home/aisw302/.bashrc
+if 문 행은 grep 주석을 사용하여 /etc/passwd 파일을 검색하여 특정 사용자 이름이 현재 있는지 확인합니다
+시스템에서 사용됩니다. 해당 로그온 이름을 가진 사용자가 있는 경우 스크립트는 일부 텍스트를 표시한 다음 bash 파일을 나열합니다
+
+
+ ./auto test11.4
+testuser=badtest
+if grep $testuser /etc/passwd
+then
+        echo The files for user $testuser are:
+        ls -a /home/$testuser/.b*
+else
+        echo "The user name $testuser does not exist on this system"
+fi
+The user name badtest does not exist on this system
+
+
+17. 파일 시스템
+windows = FAT, HPFS 및 NTFS
+Linux = EXT1 ~ 4
+
+Linux 파일 시스템 ext4의 구조 간략히 설명
+=> 부트블록 안에 슈퍼블록 슈퍼블록 안에 i-노드(i 리스트) 안에 데이터블록
+i노드에는 데이터블록의 주소를 가지고 있음
+실질적인 데이터블록은 결국 i노드가 관리함
+
+man dup
+man stat = man 1 stat 명령어
+man 2 stat 	     시스템 호출
+
+18. 
+date;ls;pwd > out1 하면 바로 화면에 나옴. 하지만 cat out1을 하면 pwd의 내용만 저장이 되어있음
+(date;ls;pwd) > out2 하면 화면에 나오지 않음. 하지만 cat out2를 하면 괄호안의 명령어가 전부 저장 되어있음을 알 수 있음
+명령어 &하면 후면처리함. 예를 들어 sleep 5하면 전면처리가 되어 5초동안 아무것도 하지 못함.
+그러나 sleep 5 & 하면 후면처리가 되어 다른 행동을 할 수가 있음.
+
+19. 프로세스 번호 확인하기
+#include <stdio.h>
+#include <unistd.h>
+  
+int main()
+{
+     printf("My process number : [%d]\n", getpid());
+     printf("My parent process number : [%d]\n", getppid());
+}
+  
+20. 
+
+
+
+
+ 
